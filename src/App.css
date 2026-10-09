@@ -352,6 +352,10 @@
 .privacy-note svg { flex: 0 0 auto; color: #698270; }
 .privacy-note p { font-size: 9px; line-height: 1.5; }
 .site-footer { min-height: 38px; padding: 0 42px; display: flex; justify-content: space-between; align-items: center; color: #929b94; background: var(--frame); border-top: 1px solid var(--frame-line); font-size: 8px; }
+.dolphin-credit { display: inline-flex; align-items: center; gap: 6px; color: var(--frame-muted); text-decoration: none; white-space: nowrap; transition: color .18s; }
+.dolphin-credit:hover { color: var(--frame-ink); }
+.dolphin-credit img { width: 21px; height: 21px; object-fit: cover; border-radius: 50%; }
+.dolphin-credit strong { color: var(--frame-ink); font-weight: 700; }
 
 .mode-lamp { --frame: #f5f0e4; --frame-ink: #443a2d; --frame-muted: #857963; --frame-line: #e7ddc8; --page-bg: #fff4dc; --page-ink: #514334; --page-muted: #a18b69; --accent-main: #a16e37; --reading-surface: #eae2d1; }
 .mode-lamp .mode-option.selected { color: #765126; background: #f4ead5; border-color: #d9c59d; }
@@ -402,7 +406,9 @@
   .font-fieldset { margin-top: 18px; }
   .panel-divider { margin: 19px 0 17px; }
   .privacy-note { margin-top: 17px; }
-  .site-footer { min-height: 38px; padding: 0 17px; font-size: 7px; }
+  .site-footer { min-height: 44px; padding: 6px 13px; gap: 8px; font-size: 7px; }
+  .dolphin-credit { gap: 4px; font-size: 9px; }
+  .dolphin-credit img { width: 20px; height: 20px; }
 }
 @media (max-width: 390px) {
   .reading-area { padding-right: 13px; padding-left: 13px; }

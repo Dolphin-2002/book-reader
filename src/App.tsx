@@ -300,7 +300,14 @@ function App() {
           <div className="privacy-note"><Glasses size={15} /><p>Files stay on this device. Translating sends this page to Google.</p></div>
         </aside>
       </div>
-      <footer className="site-footer"><span>MADE FOR THE LOVE OF A GOOD BOOK</span><span>TURN THE PAGE, TAKE YOUR TIME</span></footer>
+      <footer className="site-footer">
+        <span>MADE FOR THE LOVE OF A GOOD BOOK</span>
+        <span>TURN THE PAGE, TAKE YOUR TIME</span>
+        <a className="dolphin-credit" href="https://dolphin-service.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Made by Dolphin. Opens in a new tab">
+          <img src="https://dolphin-service.vercel.app/dolphin-companion.png" alt="" width="24" height="24" />
+          <span>Made by <strong>Dolphin</strong></span>
+        </a>
+      </footer>
     </main>
   )
 }
