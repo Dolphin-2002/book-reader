@@ -413,3 +413,42 @@
   .mode-option { min-height: 56px; flex-direction: row; justify-content: center; }
   .site-footer span:last-child { display: none; }
 }
+
+/* Reading controls apply equally on desktop and small screens. */
+.page-copy, .font-sans .page-copy { font-size: var(--reader-font-size, 19px); line-height: var(--reader-line-height, 1.8); }
+.pdf-scroll { width: 100%; overflow: auto; margin: 22px 0; }
+.pdf-scroll > div { min-width: 100%; }
+.pdf-page { display: block; width: 100%; height: auto; }
+.mode-night .pdf-page { filter: invert(.88) hue-rotate(180deg); }
+.mode-lamp .pdf-page { filter: sepia(.4) brightness(.97); }
+.mode-contrast .pdf-page { filter: contrast(1.35); }
+.document-toolbar { width: min(100%, 790px); display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; margin-bottom: 15px; }
+.document-toolbar .font-switch { min-width: 210px; }
+.document-toolbar label { display: flex; align-items: center; gap: 8px; font-size: 12px; }
+.document-toolbar input { width: 100px; }
+.reader-hint { color: var(--frame-muted); font: 12px/1.6 'Segoe UI', sans-serif; }
+.extra-setting, .jump-form { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 17px; font-size: 12px; }
+.extra-setting select, .jump-form input, .jump-form button, .bookmark-button, .bookmark-list button { padding: 7px; color: var(--frame-ink); background: var(--frame); border: 1px solid var(--frame-line); border-radius: 4px; }
+.jump-form input { width: 65px; }
+.bookmark-button { width: 100%; margin-top: 12px; cursor: pointer; }
+.bookmark-button[aria-pressed=true] { border-color: var(--accent-main); }
+.bookmark-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.bookmark-list button { cursor: pointer; font-size: 11px; }
+button:disabled { opacity: .45; cursor: default; }
+.book-stage { isolation: isolate; }
+.book-stage::before { content: ''; position: absolute; inset: 5px -4px -6px 4px; z-index: -1; background: var(--page-bg); border: 1px solid var(--frame-line); box-shadow: 3px 3px 0 var(--page-bg), 4px 4px 0 var(--frame-line), 6px 6px 0 var(--page-bg), 7px 7px 0 var(--frame-line); }
+.book-page { background-image: linear-gradient(90deg, #78644214, transparent 7%, transparent 97%, #7864420a); }
+.book-page::after { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0; background: linear-gradient(100deg, transparent 20%, #0003 48%, #fff2 62%, transparent 85%); }
+.book-stage.is-flipping .book-page { animation: paper-forward .65s ease both; }
+.book-stage.is-flipping.turn-backward .book-page { transform-origin: right center; animation-name: paper-backward; }
+.book-stage.is-flipping .book-page::after { animation: paper-shadow .65s ease both; }
+@keyframes paper-forward { 0% { transform: rotateY(-32deg) skewY(-1deg); opacity: .65; } 100% { transform: rotateY(0) skewY(0); opacity: 1; } }
+@keyframes paper-backward { 0% { transform: rotateY(32deg) skewY(1deg); opacity: .65; } 100% { transform: rotateY(0) skewY(0); opacity: 1; } }
+@keyframes paper-shadow { 0% { opacity: .8; } 100% { opacity: 0; } }
+.reading-heading h1, .page-indicator strong, .page-controls { color: var(--frame-ink); }
+.reading-heading .eyebrow, .page-indicator, .progress-label, .size-value, .mode-option, .font-switch button { color: var(--frame-muted); }
+.mode-night .translate-controls select { color: var(--frame-ink); background: var(--frame); }
+.mode-night .upload-button:hover { background: #35443a; }
+body:has(.mode-night) { background: #171d1a; }
+body:has(.mode-lamp) { background: #ddd3bc; }
+@media (prefers-reduced-motion: reduce) { .book-stage.is-flipping .book-page, .book-stage.is-flipping .book-page::after { animation: none; } }
